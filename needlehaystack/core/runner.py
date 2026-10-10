@@ -25,7 +25,7 @@ import logging
 import time
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from typing import Any
 
 from ..haystacks.base import HaystackSource
@@ -130,7 +130,7 @@ class Runner:
             "expected_answer": needle.expected_answer,
             "prompt_question": question,
             "duration_seconds": duration,
-            "timestamp_utc": datetime.now(UTC).isoformat(),
+            "timestamp_utc": datetime.now(timezone.utc).isoformat(),
             "seed": seed,
         }
 
